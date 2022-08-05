@@ -1,6 +1,6 @@
 ﻿namespace TaskManager.Application.Services
 {
-    public interface IDueDateCalculator
+    public interface IDueDateCalculater
     {
         DateTime CalculateDueDate(DateTime startDate, int duration);
     }
