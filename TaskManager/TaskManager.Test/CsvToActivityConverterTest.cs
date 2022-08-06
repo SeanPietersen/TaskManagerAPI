@@ -26,7 +26,7 @@ namespace TaskManager.Test
             var client = "Mr Ndlovu";
             var dueDate = new DateTime(2021, 04, 26, 12, 0, 0);
             _csvStringDateToDateConverter.ConvertCsvStringDateToDate(startDateString).Returns(startDate);
-            _dueDateCalculater.CalculateDueDate(startDate, 3).Returns(dueDate);
+            _dueDateCalculater.CalculateDueDate(startDate, duration).Returns(dueDate);
 
             //Act
             var actual = _csvToActivityConverter.ConvertCsvToActivity(lineToConvert);
@@ -47,7 +47,7 @@ namespace TaskManager.Test
             var client = "Ms Mokoena";
             var dueDate = new DateTime(2021, 04, 26, 12, 0, 0);
             _csvStringDateToDateConverter.ConvertCsvStringDateToDate(startDateString).Returns(startDate);
-            _dueDateCalculater.CalculateDueDate(startDate, 3).Returns(dueDate);
+            _dueDateCalculater.CalculateDueDate(startDate, duration).Returns(dueDate);
 
             //Act
             var actual = _csvToActivityConverter.ConvertCsvToActivity(lineToConvert);

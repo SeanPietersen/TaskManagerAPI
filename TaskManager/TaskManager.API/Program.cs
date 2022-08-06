@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManager.Application.Contract;
+using TaskManager.Application.Services;
 using TaskManager.Infrustructure.DbContexts;
 using TaskManager.Infrustructure.Repository;
 
@@ -13,6 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IActivityContract, ActivityContract>();
+builder.Services.AddTransient<ICsvStringDateToDateConverter, CsvStringDateToDateConverter>();
+builder.Services.AddTransient<ICsvToActivityConverter, CsvToActivityConverter>();
+builder.Services.AddTransient<IDueDateCalculater, DueDateCalculater>();
 
 builder.Services.AddDbContext<TaskManagerContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("TaskManagerDBConnectionString")));
 
