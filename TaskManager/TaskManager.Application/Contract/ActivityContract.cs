@@ -16,6 +16,7 @@ namespace TaskManager.Application.Contract
             _csvToActivityConverter = csvToActivityConverter;
             _activityRepository = activityRepository;
         }
+
         public List<Activity> UploadActivityData(IFormFile file)
         {
             var result = new List<Activity>();
@@ -30,6 +31,11 @@ namespace TaskManager.Application.Contract
             var uploadedFile = _activityRepository.AddActivitiesAsync(result).Result;
 
             return uploadedFile;
-        }        
+        }
+
+        public IEnumerable<Activity> RetrieveActivityData()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

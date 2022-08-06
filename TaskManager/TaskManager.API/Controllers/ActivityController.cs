@@ -13,12 +13,19 @@ namespace TaskManager.API.Controllers
             _activityContract = activityContract;
         }
 
-        [HttpPost]
+        [HttpPost("upload")]
         public ActionResult UploadActivityData(IFormFile file)
         {
             var fileUpload = _activityContract.UploadActivityData(file);
 
             return Ok(fileUpload);
+        }
+
+        [HttpGet("retrieve")]
+        public ActionResult RetrieveActivityData()
+        {
+            var activityData = _activityContract.RetrieveActivityData();
+            return Ok(activityData);
         }
     }
 }
