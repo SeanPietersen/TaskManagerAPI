@@ -21,9 +21,12 @@ namespace TaskManager.Infrustructure.Repository
                 
                 if (entity.State == EntityState.Added)
                 {
-                    _context.SaveChanges();
                     entities.Add(entity.Entity);
                 }
+            }
+            if(entities.Count == activities.Count)
+            {
+                _context.SaveChanges();
             }
             return entities;
         }

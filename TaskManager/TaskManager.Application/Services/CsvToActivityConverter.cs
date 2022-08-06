@@ -18,7 +18,7 @@ namespace TaskManager.Application.Services
             string[] columns = line.Split(',');
             var activityToReturn = new Activity()
             {
-                Id = int.Parse(columns[0].ToString()),
+                //Id = int.Parse(columns[0].ToString()),
                 Description = columns[1].Replace(@"'", ""),
                 Client = columns[2].Replace(@"'", ""),
                 StartDate = _csvStringDateToDateConverter.ConvertCsvStringDateToDate(columns[3].Replace(@"'", "")),

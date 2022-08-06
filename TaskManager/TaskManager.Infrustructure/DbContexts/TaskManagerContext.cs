@@ -25,7 +25,7 @@ namespace TaskManager.Infrustructure.DbContexts
  *
 * | DATE USED  |   NAME                        |  Created Date & Purpose
 * ====================================================================================================================================
-* |            |   Zosma                       | 
+* |            |   Zosma                       | 2022-08-06 - initial migration
 * |            |   Zibal                       | 
 * |            |   Zavijava                    | 
 * |            |   Zaurak                      | 
