@@ -22,7 +22,7 @@ namespace TaskManager.Application.Services
                 Description = columns[1].Replace(@"'", ""),
                 Client = columns[2].Replace(@"'", ""),
                 StartDate = _csvStringDateToDateConverter.ConvertCsvStringDateToDate(columns[3].Replace(@"'", "")),
-                Dutration = int.Parse(columns[4].ToString()),
+                Duration = int.Parse(columns[4].ToString()),
                 Task1 = columns[5].Replace(@"'", ""),
                 Task2 = columns[6].Replace(@"'", ""),
                 Task3 = columns[7].Replace(@"'", ""),

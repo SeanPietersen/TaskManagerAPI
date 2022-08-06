@@ -4,7 +4,7 @@ using TaskManager.Application.Contract;
 namespace TaskManager.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ActivityController : Controller
     {
         private readonly IActivityContract _activityContract;
