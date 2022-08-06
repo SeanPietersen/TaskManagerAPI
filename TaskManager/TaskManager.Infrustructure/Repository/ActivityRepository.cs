@@ -31,9 +31,9 @@ namespace TaskManager.Infrustructure.Repository
             return entities;
         }
 
-        public Task<IEnumerable<Activity>> GetActivitiesAsync()
+        public async Task<IEnumerable<Activity>> GetActivitiesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Activities.OrderBy(c => c.Id).ToListAsync();
         }
     }
 }
