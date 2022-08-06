@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contract\" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TaskManager.Domain\TaskManager.Domain.csproj" />
+    <ProjectReference Include="..\TaskManager.Infrustructure\TaskManager.Infrustructure.csproj" />
   </ItemGroup>
 
 </Project>
