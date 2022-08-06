@@ -30,5 +30,10 @@ namespace TaskManager.Infrustructure.Repository
             }
             return entities;
         }
+
+        public Task<IEnumerable<Activity>> GetActivitiesAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

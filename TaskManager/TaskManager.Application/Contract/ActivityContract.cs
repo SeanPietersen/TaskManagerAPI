@@ -35,7 +35,9 @@ namespace TaskManager.Application.Contract
 
         public IEnumerable<Activity> RetrieveActivityData()
         {
-            throw new NotImplementedException();
+            var activities = _activityRepository.GetActivitiesAsync().Result;
+
+            return activities;
         }
     }
 }
