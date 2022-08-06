@@ -4,67 +4,35 @@
     {
         public DateTime CalculateDueDate(DateTime startDate, int duration)
         {
-             var dueDate = new DateTime();
-            var daysToAdd = 0;
-            var hoursToAdd = 0.0;
-            var minutesToAdd = 0;
+            var dueDate = new DateTime();
+            
 
-            int startDateHour = startDate.Hour;
-            int startDaTeMinute = startDate.Minute;
-            decimal numberDecimalToAdd = 0M;
+            var endOfDay = new DateTime(startDate.Year, startDate.Month, startDate.Day, 16, 0, 0);
 
-
-            if(!((startDate.Minute/60) == 1))
+            while(DateTime.Compare(startDate.AddHours(duration), endOfDay) > 0)
             {
-                numberDecimalToAdd = Math.Round((decimal)(startDate.Minute/60), 2);
-            }
+                var newDay = new DateTime(startDate.Year, startDate.Month, startDate.Day, 8, 30, 0);
+                TimeSpan timeToAddToNewDay = endOfDay - startDate;
 
-            if((startDate.Hour + duration +  numberDecimalToAdd) >16)
-            { 
-                decimal hourToAddToNewDate = (startDate.Hour + duration + numberDecimalToAdd) - 16;
-
-                if( startDate.DayOfWeek == DayOfWeek.Friday)
+                if (startDate.DayOfWeek == DayOfWeek.Friday)
                 {
-                    daysToAdd += 3;
+                    newDay = newDay.AddDays(3);
                 }
                 else
                 {
-                    daysToAdd += 1;
+                    newDay = newDay.AddDays(1);
                 }
 
-                //new day time
-                hoursToAdd += 8.5;
-                hoursToAdd += (double) hourToAddToNewDate;
+                //Start new day at 8.30 plus hours to add
 
-                while(hoursToAdd > 16)
-                {
-                    hoursToAdd -= 16;
+                newDay = newDay.AddMinutes(60 - timeToAddToNewDay.Minutes);
 
-                    if (startDate.DayOfWeek == DayOfWeek.Friday)
-                    {
-                        daysToAdd += 3;
-                    }
-                    else
-                    {
-                        daysToAdd += 1;
-                    }
-                    hoursToAdd += 8.5;
-                }
-
-                if(!((hoursToAdd % 1) == 0))
-                {
-                    hoursToAdd -= 0.5;
-                    minutesToAdd += 30;
-                }
-
-                dueDate = startDate.AddDays(daysToAdd);
-                dueDate = dueDate.AddHours(hoursToAdd-startDateHour).AddMinutes(minutesToAdd - startDaTeMinute);
-        }
-            else
-            {
-                dueDate = startDate.AddHours(duration);
+                startDate = newDay;
+                endOfDay = new DateTime(startDate.Year, startDate.Month, startDate.Day, 16, 0, 0);
+                duration = duration - timeToAddToNewDay.Hours - 1;
             }
 
+            dueDate = startDate.AddHours(duration);
             return dueDate;
         }
     }

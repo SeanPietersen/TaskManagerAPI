@@ -26,7 +26,7 @@ namespace TaskManager.Test
         {
             //Arrange
             IDueDateCalculater dueDateCalculator = new DueDateCalculater();
-            var startDate = new DateTime(2021, 06, 1, 9, 30, 0);
+            var startDate = new DateTime(2021, 06, 1, 9, 0, 0);
             var duration = 8;
             var dueDate = new DateTime(2021, 06, 2, 9, 30, 0);
 
@@ -62,14 +62,13 @@ namespace TaskManager.Test
             IDueDateCalculater dueDateCalculator = new DueDateCalculater();
             var startDate = new DateTime(2021, 04, 30, 12, 25, 0);
             var duration = 18;
-            var dueDate = new DateTime(2021, 05, 2, 9, 30, 0);
+            var dueDate = new DateTime(2021, 05, 4, 15, 25, 0);
 
             //Act
             var actual = dueDateCalculator.CalculateDueDate(startDate, duration);
 
             //Assert
             Assert.Equal(dueDate, actual);
-
         }
     }
 }
