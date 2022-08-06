@@ -26,7 +26,7 @@ namespace TaskManager.Infrustructure.DbContexts
 * | DATE USED  |   NAME                        |  Created Date & Purpose
 * ====================================================================================================================================
 * |            |   Zosma                       | 2022-08-06 - initial migration
-* |            |   Zibal                       | 
+* |            |   Zibal                       | 2022-08-06 - fixing column name for the "Duration column"
 * |            |   Zavijava                    | 
 * |            |   Zaurak                      | 
 * |            |   Zaniah                      | 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManager.Infrustructure.DbContexts;
 
@@ -11,9 +12,10 @@ using TaskManager.Infrustructure.DbContexts;
 namespace TaskManager.Infrustructure.Migrations
 {
     [DbContext(typeof(TaskManagerContext))]
-    partial class TaskManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20220806184621_Zibal")]
+    partial class Zibal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
