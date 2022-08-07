@@ -27,5 +27,12 @@ namespace TaskManager.API.Controllers
             var activityData = _activityContract.RetrieveActivityData();
             return Ok(activityData);
         }
+
+        [HttpGet("download")]
+        public ActionResult DownloadActivitySqlScript()
+        {
+            var sqlScript = _activityContract.DownloadActivitySqlScript();
+            return Ok(sqlScript);
+        }
     }
 }
