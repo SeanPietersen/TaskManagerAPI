@@ -12,7 +12,7 @@ using TaskManager.Infrustructure.DbContexts;
 namespace TaskManager.Infrustructure.Migrations
 {
     [DbContext(typeof(TaskManagerContext))]
-    [Migration("20220806103551_Zosma")]
+    [Migration("20220807065816_Zosma")]
     partial class Zosma
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,7 @@ namespace TaskManager.Infrustructure.Migrations
             modelBuilder.Entity("TaskManager.Domain.Activity", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Client")
                         .IsRequired()
@@ -43,7 +40,7 @@ namespace TaskManager.Infrustructure.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Dutration")
+                    b.Property<int>("Duration")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")

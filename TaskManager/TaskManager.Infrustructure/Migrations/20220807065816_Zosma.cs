@@ -13,12 +13,11 @@ namespace TaskManager.Infrustructure.Migrations
                 name: "Activities",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Client = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Dutration = table.Column<int>(type: "int", nullable: false),
+                    Duration = table.Column<int>(type: "int", nullable: false),
                     Task1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Task2 = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Task3 = table.Column<string>(type: "nvarchar(max)", nullable: false),

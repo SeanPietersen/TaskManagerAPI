@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using TaskManager.Domain;
 
 namespace TaskManager.Infrustructure.DbContexts
@@ -14,6 +15,9 @@ namespace TaskManager.Infrustructure.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Activity>()
+                .Property(b => b.Id)
+                .ValueGeneratedNever();
 
             base.OnModelCreating(modelBuilder);
         }
@@ -25,8 +29,8 @@ namespace TaskManager.Infrustructure.DbContexts
  *
 * | DATE USED  |   NAME                        |  Created Date & Purpose
 * ====================================================================================================================================
-* |            |   Zosma                       | 2022-08-06 - initial migration
-* |            |   Zibal                       | 2022-08-06 - fixing column name for the "Duration column"
+* |            |   Zosma                       | 2022-08-07 - initial migration
+* |            |   Zibal                       | 
 * |            |   Zavijava                    | 
 * |            |   Zaurak                      | 
 * |            |   Zaniah                      | 
