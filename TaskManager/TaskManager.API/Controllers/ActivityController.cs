@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using System.Text;
 using TaskManager.Application.Contract;
 
 namespace TaskManager.API.Controllers
@@ -31,8 +33,10 @@ namespace TaskManager.API.Controllers
         [HttpGet("download")]
         public ActionResult DownloadActivitySqlScript()
         {
-            var sqlScript = _activityContract.DownloadActivitySqlScript();
-            return Ok(sqlScript);
+            var sqlScriptString = _activityContract.DownloadActivitySqlScript();
+
+            var fieldBytes = Encoding.UTF8.GetBytes(sqlScriptString);
+            return File(fieldBytes, "text/csv", "ActivityData.txt");
         }
     }
 }

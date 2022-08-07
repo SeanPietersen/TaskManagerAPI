@@ -7,5 +7,7 @@ namespace TaskManager.Application.Contract
     {
         List<Activity> UploadActivityData(IFormFile file);
         IEnumerable<Activity> RetrieveActivityData();
+
+        string DownloadActivitySqlScript();
     }
 }
